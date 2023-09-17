@@ -1,0 +1,36 @@
+@model CompanyViewModel
+@ViewBag.companyId
+@if (TempData["AlertMessage"] != null)
+    {
+        <div class="alert alert-success">
+            <strong>@TempData["AlertMessage"]</strong>
+        </div>
+    }
+<div class="row">
+    <div class="col-lg-8">
+        <div class="bg-white p-4">
+            <h1 class="h4 mb-4">Şirketler</h1>
+            @foreach(var company in Model.Companies)
+            {
+                <div class="card bg-transparent border-0 mb-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <h5><a href="/company/details/@company.Url" class="btn-link fw-bold">@company.CompanyName</a></h5>
+                            <p>Detaylı Bilgi İçin Tıklayın</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-3">
+            }
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div> 
+</div>
+
+

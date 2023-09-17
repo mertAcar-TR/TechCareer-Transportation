@@ -1,0 +1,29 @@
+@model DemandCreateViewModel
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Post Create</h1>
+            <form action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" id="CompanyId" name="CompanyId" value="@TempData["CompanyId"]">
+                <div class="mb-3">
+                    <label asp-for="Text" class="form-label"></label>
+                    <input asp-for="Text" class="form-control">
+                    <span asp-validation-for="Text" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Talep Oluştur</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.7.0/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#Text'
+        });
+    </script>
+
+}
